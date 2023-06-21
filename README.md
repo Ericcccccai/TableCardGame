@@ -4,7 +4,8 @@ This web app demonstrates different card games and you may be able to purchase s
 Front-End:
   - Html
   - CSS
-  - JavaScript (react) MAYBE
+  - JavaScript (React Native)
+  - Later in the mobile app, Flutter
 
 Back-End:
   - Java
