@@ -1,2 +1,10 @@
 # TableCardGame
-This is a web app that demonstates different card games, and maybe able to purchase some card games too. 
+This web app demonstrates different card games and you may be able to purchase some card games too. 
+Front-End:
+  - Html
+  - CSS
+  - JavaScript (react) MAYBE
+Back-End:
+  - Java
+  - Go MAYBE
+MORE TO DISCOVER
