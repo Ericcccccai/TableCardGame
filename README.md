@@ -10,4 +10,11 @@ Back-End:
   - Java
   - Go MAYBE
 
+Database:
+  - MySQL
+
+Cloud:
+  - AWS
+
+
 MORE TO DISCOVER
