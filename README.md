@@ -37,39 +37,39 @@ My version: 2022.3.2f1 LTS
    - Assets\JMO Assets\Cartoon FX\Demo\UI\CFX_Demo_GTToggle.cs
       - Update `public Texture Normal, Hover`; to ` public Sprite Hover;` `public Sprite Normal;`
       - Update the function awake() to 
-         -     RectTransform rectTransform=GetComponent<RectTransform>();
-         -     Vector3[] corners = new Vector3[4];
-         -     rectTransform.GetWorldCorners(corners);
-         -          // Bottom-left corner of the rect in screen space
-         -     Vector3 screenBottomLeft = RectTransformUtility.WorldToScreenPoint(Camera.main, corners[0]);
-         -          // Top-right corner of the rect in screen space
-         -     Vector3 screenTopRight = RectTransformUtility.WorldToScreenPoint(Camera.main, corners[2]);
-         -          // Create a Rect from the bottom-left and top-right corners
-         -     CollisionRect = Rect.MinMaxRect(screenBottomLeft.x, screenBottomLeft.y, screenTopRight.x, screenTopRight.y);
-         -          Label = this.GetComponentInChildren<Text>();
-         -          UpdateTexture();
+         - RectTransform rectTransform=GetComponent<RectTransform>();
+         - Vector3[] corners = new Vector3[4];
+         - rectTransform.GetWorldCorners(corners);
+         -  // Bottom-left corner of the rect in screen space
+         - Vector3 screenBottomLeft = RectTransformUtility.WorldToScreenPoint(Camera.main, corners[0]);
+         - // Top-right corner of the rect in screen space
+         - Vector3 screenTopRight = RectTransformUtility.WorldToScreenPoint(Camera.main, corners[2]);
+         - // Create a Rect from the bottom-left and top-right corners
+         - CollisionRect = Rect.MinMaxRect(screenBottomLeft.x, screenBottomLeft.y, screenTopRight.x, screenTopRight.y);
+         - Label = this.GetComponentInChildren<Text>();
+         - UpdateTexture();
       - Update the function UpdateTexture() to
-         -     Color col = State ? NormalColor : DisabledColor;
-         -     Image imageComponent = this.GetComponent<Image>();
-         -          - if (Over){
-         -     imageComponent.sprite = Hover;
-         -     }else{
-         -     imageComponent.sprite = Normal;
-         -     }
-         -     imageComponent.color = col;
+         - Color col = State ? NormalColor : DisabledColor;
+         - Image imageComponent = this.GetComponent<Image>();
+         - if (Over){
+         -   imageComponent.sprite = Hover;
+         - }else{
+         -   imageComponent.sprite = Normal;
+         - }
+         - imageComponent.color = col;
          - 
-         -     if (Label != null)
-         -     Label.color = col - 1.75f;
+         - if (Label != null)
+         - Label.color = col - 1.75f;
    - Assets\Toon Character Pack\Toon Animations\ToonAnimations.cs
       - Update the last if statement in function OnGUI() to
-         -     if (image != null){
-         -     RectTransform rectTransform = image.GetComponent<RectTransform>();
-         -          if (rectTransform != null && image.sprite != null){
-         -          var tmp_cs1 = rectTransform.anchoredPosition;
-         -          tmp_cs1.x = (float)(Screen.width - image.sprite.rect.width) / 2f;
-         -          rectTransform.anchoredPosition = tmp_cs1;
-         -          }
-         -     }
+         - if (image != null){
+         -   RectTransform rectTransform = image.GetComponent<RectTransform>();
+         -   if (rectTransform != null && image.sprite != null){
+         -    var tmp_cs1 = rectTransform.anchoredPosition;
+         -    tmp_cs1.x = (float)(Screen.width - image.sprite.rect.width) / 2f;
+         -    rectTransform.anchoredPosition = tmp_cs1;
+         -    }
+         - }
    - Assets\Toon Character Pack\Scripts\GameObjectSpawner_Characters.cs
       - Update the error if statement to the same as above
 - After these 13 errors are fixed, there should be popping up 8 new errors with 172 warnings.
@@ -77,37 +77,37 @@ My version: 2022.3.2f1 LTS
       - Update `soundSource.clip = new AudioClip();` to `soundSource.clip = null;`
    - Assets\JMO Assets\Cartoon FX\Demo\UI\CFX_Demo_GTButton.cs
       - Update function Awake() to:
-         -     RectTransform rectTransform=this.GetComponent<RectTransform>();
-         -                 if (rectTransform != null){
-         -                         Rect rect = new Rect(
-         -                                 rectTransform.position.x,
-         -                                 rectTransform.position.y,
-         -                                 rectTransform.rect.width,
-         -                                 rectTransform.rect.height
-         -                         );
-         -                          CollisionRect = rect;
-         -                 }
+         - RectTransform rectTransform=this.GetComponent<RectTransform>();
+         -   if (rectTransform != null){
+         -   Rect rect = new Rect(
+         -    rectTransform.position.x,
+         -    rectTransform.position.y,
+         -    rectTransform.rect.width,
+         -    rectTransform.rect.height
+         -    );
+         -   CollisionRect = rect;
+         - }
       - Update function Update() to:
-         -     Image imageComponent = this.GetComponent<Image>();
-         -                 if (imageComponent != null){
-         -                         RectTransform rectTransform = this.GetComponent<RectTransform>();
-         -                         if (rectTransform != null){
-         -                                 Rect rect = new Rect(
-         -                                         rectTransform.position.x,
-         -                                         rectTransform.position.y,
-         -                                         rectTransform.rect.width,
-         -                                         rectTransform.rect.height
-         -                                 );
-         -          -                         if(rect.Contains(Input.mousePosition)){
-         -                         imageComponent.color = HoverColor;
-         -          -                                 if(Input.GetMouseButtonDown(0)){
-         -                                         OnClick();
-         -                                         }
-         -                                 }else{
-         -                                         imageComponent.color =  NormalColor;
-         -                                 }
-         -                         }
-         -                 }
+         - Image imageComponent = this.GetComponent<Image>();
+         -   if (imageComponent != null){
+         -   RectTransform rectTransform = this.GetComponent<RectTransform>();
+         -    if (rectTransform != null){
+         -    Rect rect = new Rect(
+         -    rectTransform.position.x,
+         -    rectTransform.position.y,
+         -    rectTransform.rect.width,
+         -    rectTransform.rect.height
+         -    );
+         -   if(rect.Contains(Input.mousePosition)){
+         -   imageComponent.color = HoverColor;
+         -  if(Input.GetMouseButtonDown(0)){
+         -   OnClick();
+         -   }
+         - }else{
+         -   imageComponent.color =  NormalColor;
+         -   }
+         -  }
+         - }
       - Update the error if statement to:
          -     if (!((r is TrailRenderer) || (r is ParticleSystemRenderer)))
    - After fixing these errors, a new error should be popped up
@@ -144,38 +144,39 @@ Windows 11 教程：
    - Assets\JMO Assets\Cartoon FX\Demo\UI\CFX_Demo_GTToggle.cs
    - 更新 `public Texture Normal, Hover;` 为`public Sprite Hover;` `public Sprite Normal;`
    - 更新函数awake()为
-      -     RectTransform rectTransform=GetComponent<RectTransform>();
-      -     Vector3[] corners = new Vector3[4];
-      -     rectTransform.GetWorldCorners(corners);
-      -       // Bottom-left corner of the rect in screen space
-      -     Vector3 screenBottomLeft = RectTransformUtility.WorldToScreenPoint(Camera.main, corners[0]);
-      -       // Top-right corner of the rect in screen space
-      -     Vector3 screenTopRight = RectTransformUtility.WorldToScreenPoint(Camera.main, corners[2]);
-      -       // Create a Rect from the bottom-left and top-right corners
-      -     CollisionRect = Rect.MinMaxRect(screenBottomLeft.x, screenBottomLeft.y, screenTopRight.x, screenTopRight.y);
-      -       Label = this.GetComponentInChildren<Text>();
-      -       UpdateTexture();
+         - RectTransform rectTransform=GetComponent<RectTransform>();
+         - Vector3[] corners = new Vector3[4];
+         - rectTransform.GetWorldCorners(corners);
+         -  // Bottom-left corner of the rect in screen space
+         - Vector3 screenBottomLeft = RectTransformUtility.WorldToScreenPoint(Camera.main, corners[0]);
+         - // Top-right corner of the rect in screen space
+         - Vector3 screenTopRight = RectTransformUtility.WorldToScreenPoint(Camera.main, corners[2]);
+         - // Create a Rect from the bottom-left and top-right corners
+         - CollisionRect = Rect.MinMaxRect(screenBottomLeft.x, screenBottomLeft.y, screenTopRight.x, screenTopRight.y);
+         - Label = this.GetComponentInChildren<Text>();
+         - UpdateTexture();
    - 更新函数UpdateTexture()为
-      -     Color col = State ? NormalColor : DisabledColor;
-      -     Image imageComponent = this.GetComponent<Image>();
-      -     if (Over){
-      -     imageComponent.sprite = Hover;
-      -     }else{
-      -     imageComponent.sprite = Normal;
-      -     }
-      -     imageComponent.color = col;
-      -     if (Label != null)
-      -     Label.color = col - 1.75f;
+         - Color col = State ? NormalColor : DisabledColor;
+         - Image imageComponent = this.GetComponent<Image>();
+         - if (Over){
+         -   imageComponent.sprite = Hover;
+         - }else{
+         -   imageComponent.sprite = Normal;
+         - }
+         - imageComponent.color = col;
+         - 
+         - if (Label != null)
+         - Label.color = col - 1.75f;
    - Assets\Toon Character Pack\Toon Animations\ToonAnimations.cs
    - 更新函数OnGUI()中最后的if语句为：
-      -     if (image != null){
-      -     RectTransform rectTransform = image.GetComponent<RectTransform>();
-      -       if (rectTransform != null && image.sprite != null){
-      -          var tmp_cs1 = rectTransform.anchoredPosition;
-      -          tmp_cs1.x = (float)(Screen.width - image.sprite.rect.width) / 2f;
-      -          rectTransform.anchoredPosition = tmp_cs1;
-      -        }
-      -     }
+         - if (image != null){
+         -   RectTransform rectTransform = image.GetComponent<RectTransform>();
+         -   if (rectTransform != null && image.sprite != null){
+         -    var tmp_cs1 = rectTransform.anchoredPosition;
+         -    tmp_cs1.x = (float)(Screen.width - image.sprite.rect.width) / 2f;
+         -    rectTransform.anchoredPosition = tmp_cs1;
+         -    }
+         - }
    - Assets\Toon Character Pack\Scripts\GameObjectSpawner_Characters.cs
    - 将错误的if语句更新为上述内容
 - 修复这13个错误后，应该会弹出8个新错误，和172个警告。
@@ -183,37 +184,37 @@ Windows 11 教程：
       - 更新`soundSource.clip = new AudioClip();`为`soundSource.clip = null;`
    - Assets\JMO Assets\Cartoon FX\Demo\UI\CFX_Demo_GTButton.cs
    - 更新函数Awake()为:
-      -     RectTransform rectTransform=this.GetComponent<RectTransform>();
-      -                 if (rectTransform != null){
-      -                         Rect rect = new Rect(
-      -                                 rectTransform.position.x,
-      -                                 rectTransform.position.y,
-      -                                 rectTransform.rect.width,
-      -                                 rectTransform.rect.height
-      -                         );
-      -                          CollisionRect = rect;
-      -                 }
+         - RectTransform rectTransform=this.GetComponent<RectTransform>();
+         -   if (rectTransform != null){
+         -   Rect rect = new Rect(
+         -    rectTransform.position.x,
+         -    rectTransform.position.y,
+         -    rectTransform.rect.width,
+         -    rectTransform.rect.height
+         -    );
+         -   CollisionRect = rect;
+         - }
    - 更新函数Update()为:
-      -     Image imageComponent = this.GetComponent<Image>();
-      -                 if (imageComponent != null){
-      -                         RectTransform rectTransform = this.GetComponent<RectTransform>();
-      -                         if (rectTransform != null){
-      -                                 Rect rect = new Rect(
-      -                                         rectTransform.position.x,
-      -                                         rectTransform.position.y,
-      -                                         rectTransform.rect.width,
-      -                                         rectTransform.rect.height
-      -                                 );
-      -                                if(rect.Contains(Input.mousePosition)){
-      -                                  imageComponent.color = HoverColor;
-      -                                        if(Input.GetMouseButtonDown(0)){
-      -                                         OnClick();
-      -                                         }
-      -                                 }else{
-      -                                         imageComponent.color =  NormalColor;
-      -                                 }
-      -                         }
-      -                 }
+         - Image imageComponent = this.GetComponent<Image>();
+         -   if (imageComponent != null){
+         -   RectTransform rectTransform = this.GetComponent<RectTransform>();
+         -    if (rectTransform != null){
+         -    Rect rect = new Rect(
+         -    rectTransform.position.x,
+         -    rectTransform.position.y,
+         -    rectTransform.rect.width,
+         -    rectTransform.rect.height
+         -    );
+         -   if(rect.Contains(Input.mousePosition)){
+         -   imageComponent.color = HoverColor;
+         -  if(Input.GetMouseButtonDown(0)){
+         -   OnClick();
+         -   }
+         - }else{
+         -   imageComponent.color =  NormalColor;
+         -   }
+         -  }
+         - }
    - 将错误的if语句更新为：
       -     if (!((r is TrailRenderer) || (r is ParticleSystemRenderer)))
 - 修复这些错误后，应该会弹出一个新错误
